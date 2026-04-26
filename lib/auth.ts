@@ -38,7 +38,7 @@ export const auth = betterAuth({
   },
 
   plugins: [
-    admin(),
+    admin(), // Provides advanced RBAC and admin management capabilities
     emailOTP({
       async sendVerificationOTP({ email, otp }) {
         await resend.emails.send({
