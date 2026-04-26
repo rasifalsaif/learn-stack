@@ -4,6 +4,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import useConstructUrl from "@/hooks/use-construct-url";
+import { cn } from "@/lib/utils";
 import { School, Timer, Star, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,10 +19,23 @@ export function PublicCourseCard({ data }: iAppProps) {
   const rating = 4.8;
   const reviewsCount = 124;
 
+  const getLevelColor = (level: string) => {
+    switch (level) {
+      case "Beginner":
+        return "bg-emerald-500 hover:bg-emerald-600";
+      case "Intermediate":
+        return "bg-amber-500 hover:bg-amber-600";
+      case "Advanced":
+        return "bg-rose-500 hover:bg-rose-600";
+      default:
+        return "bg-blue-600 hover:bg-blue-700";
+    }
+  };
+
   return (
     <Card className="group h-full flex flex-col border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1 rounded-2xl">
       <div className="relative aspect-video overflow-hidden">
-        <Badge className="absolute top-4 left-4 z-10 bg-blue-600 hover:bg-blue-700 text-white border-none shadow-lg">
+        <Badge className={cn("absolute top-4 left-4 z-10 text-white border-none shadow-lg", getLevelColor(data.level))}>
           {data.level}
         </Badge>
         
