@@ -55,3 +55,19 @@ export const useMagneticButton = () => {
 
   return ref;
 };
+
+export const useFadeIn = (duration: number = 0.5, delay: number = 0) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    gsap.fromTo(
+      ref.current,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration, delay, ease: 'power2.out' }
+    );
+  }, [duration, delay]);
+
+  return ref;
+};
