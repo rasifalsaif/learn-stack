@@ -11,3 +11,11 @@ export const S3 = new S3Client({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
   },
 });
+
+export const deleteFile = async (key: string) => {
+  const { DeleteObjectCommand } = await import("@aws-sdk/client-s3");
+  return await S3.send(new DeleteObjectCommand({
+    Bucket: process.env.S3_BUCKET_NAME,
+    Key: key,
+  }));
+};
