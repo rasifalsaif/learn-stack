@@ -23,6 +23,10 @@ const faqs = [
     answer: "We offer a 14-day money-back guarantee if you're not satisfied with your learning experience. No questions asked."
   },
   {
+    question: "Is Learn-Stack suitable for absolute beginners?",
+    answer: "Yes! We have many 'Zero to Hero' courses specifically designed for those starting from scratch. No prior experience required."
+  },
+  {
     question: "Is there a mobile app?",
     answer: "Our platform is fully responsive and works perfectly on mobile browsers. Stay tuned for our native iOS and Android apps coming soon!"
   }
