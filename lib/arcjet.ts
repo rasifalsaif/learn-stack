@@ -23,7 +23,7 @@ export default arcjet({
   characteristics: ["fingerprint"],
   rules: [
     shield({
-      mode: "LIVE",
+      mode: "LIVE", // Actively block suspicious requests in real-time
     }),
   ],
 });
