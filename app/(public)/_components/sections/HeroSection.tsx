@@ -40,13 +40,13 @@ export function HeroSection() {
         
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white max-w-4xl">
           <AnimatedText variant="words" delay={0.2} className="block">
-            Unlock Your Potential with Learn-Stack
+            Master Your Future with AI-Powered Learning
           </AnimatedText>
         </h1>
         
         <ScrollReveal delay={0.4} direction="up" blur={true}>
           <p className="max-w-2xl text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-            Join thousands of students mastering top skills through professional courses and expert mentorship.
+            Step into the next generation of education with Learn-Stack. Industry-standard courses, AI mentorship, and a community of innovators.
           </p>
         </ScrollReveal>
         
@@ -56,9 +56,10 @@ export function HeroSection() {
               href="/courses"
               className={buttonVariants({
                 size: "lg",
-              }) + " px-8 py-6 text-lg bg-blue-600 hover:bg-blue-700 shadow-xl hover:shadow-blue-500/20 transform hover:-translate-y-1 transition-all duration-300 rounded-full"}
+                variant: "shiny"
+              }) + " px-8 py-6 text-lg shadow-xl hover:shadow-blue-500/20 transform hover:-translate-y-1 transition-all duration-300 rounded-full"}
             >
-              Get Started Now
+              Start Learning Today
             </Link>
             <Link
               href="/about"
