@@ -20,8 +20,8 @@ export const courseCategories = [
 export const courseSchema = z.object({
   title: z
     .string()
-    .min(3, { message: "Title must be at least 3 characters long" })
-    .max(100, { message: "Title must be at most 100 characters long" }),
+    .min(3, { message: "Please provide a title with at least 3 characters." })
+    .max(100, { message: "Title is too long, maximum 100 characters allowed." }),
 
   description: z
     .string()
@@ -41,7 +41,7 @@ export const courseSchema = z.object({
       if (typeof val === "string") return parseFloat(val);
       return val;
     },
-    z.number().min(1, { message: "Price must be positive number" })
+    z.number().min(1, { message: "Please enter a valid price greater than 0." })
   ) as unknown as z.ZodNumber,
 
   duration: z.preprocess(
