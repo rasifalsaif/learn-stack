@@ -16,12 +16,12 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: "Learn-Stack | Premium AI-Powered LMS",
+    default: "Learn-Stack | Enterprise AI-Powered LMS",
     template: "%s | Learn-Stack"
   },
-  description: "The world's most advanced AI-powered learning management system. Master new skills with interactive courses, real-world projects, and intelligent assistant support.",
-  keywords: ["LMS", "E-learning", "AI learning", "Programming courses", "Skill building", "Learn-Stack"],
-  authors: [{ name: "Learn-Stack Team" }],
+  description: "A high-performance, SEO-optimized, and secure platform for digital education. Master skills with AI-driven curriculum.",
+  keywords: ["LMS", "Education", "Next.js", "React", "Online Courses", "AI learning", "Learn-Stack"],
+  authors: [{ name: "rasifalsaif" }],
   openGraph: {
     type: "website",
     locale: "en_US",
