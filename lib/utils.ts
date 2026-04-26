@@ -42,3 +42,8 @@ export function slugify(text: string) {
     .replace(/^-+/, "") // Trim - from start of text
     .replace(/-+$/, "") // Trim - from end of text
 }
+
+export function truncate(str: string, length: number) {
+  if (str.length <= length) return str
+  return str.slice(0, length) + "..."
+}
