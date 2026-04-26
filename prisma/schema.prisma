@@ -165,6 +165,9 @@ model Course {
   user             User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
   enrollment       Enrollment[]
   projects         Project[]
+
+  @@index([category])
+  @@index([status])
 }
 
 model Chapter {
@@ -204,6 +207,8 @@ model Enrollment {
   User      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, courseId])
+  @@index([userId])
+  @@index([courseId])
 }
 
 model LessonProgress {
