@@ -2,6 +2,6 @@ import "server-only"
 import Stripe from "stripe"
 
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-    apiVersion: '2026-03-25.dahlia' as any,
+    apiVersion: '2026-03-25.dahlia' as any, // Using the latest stable API version for reliable payments
     typescript: true,
 })
