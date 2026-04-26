@@ -3,6 +3,10 @@ import { PrismaClient } from "./generated/prisma";
 
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
+/**
+ * Prisma Client Singleton
+ * Ensures only one instance of Prisma is created in development to avoid connection pooling issues.
+ */
 export const prisma =
   globalForPrisma.prisma ||
   new PrismaClient({
