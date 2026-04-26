@@ -288,7 +288,7 @@ Distributed under the **Private License**. All Rights Reserved.
 
 \<div align="center"\>
 
-### **Developed with dedication by Shazid**
+### **Developed with dedication by rasifalsaif**
 
 **"Building the future of digital education, one commit at a time."**
 
