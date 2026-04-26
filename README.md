@@ -105,8 +105,9 @@ Our PostgreSQL schema is designed for speed and relational integrity.
 ### **Entity-Relationship Overview**
 
   * **User:** Handles authentication, roles (ADMIN/STUDENT), and profiles.
-  * **Course:** Stores metadata, pricing, and ownership.
-  * **Chapter:** Organizes lessons into logical groups.
+  * **Course:** Stores metadata, pricing, and category ownership.
+  * **Category:** Organizes courses into logical industry groups.
+  * **Chapter:** Organizes lessons into logical groups within a course.
   * **Lesson:** The atomic unit of content (Video URL, Content, Sorting order).
   * **Enrollment:** Junction table linking Users to Courses with payment status.
   * **Progress:** Tracks specific lesson completion per user.
