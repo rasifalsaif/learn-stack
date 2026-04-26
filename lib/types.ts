@@ -23,3 +23,19 @@ export interface CourseData {
     level: "Beginner" | "Intermediate" | "Advanced";
     status: "Draft" | "Published" | "Archive";
 }
+
+export interface ChapterData {
+    id: string;
+    title: string;
+    position: number;
+    lessons: LessonData[];
+}
+
+export interface LessonData {
+    id: string;
+    title: string;
+    description?: string | null;
+    type: "Video" | "Article" | "Quiz";
+    position: number;
+    videoKey?: string | null;
+}
