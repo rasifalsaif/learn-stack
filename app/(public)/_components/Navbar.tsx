@@ -94,13 +94,16 @@ export default function Navbar() {
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
                   className={cn(
-                    "px-3 py-2 text-sm font-medium transition-all duration-300 rounded-md relative group",
+                    "px-3 py-2 text-sm font-medium transition-all duration-300 rounded-md relative group flex items-center gap-1.5",
                     isActive
                       ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-slate-800"
                       : "text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-800"
                   )}
                 >
                   {item.name}
+                  {item.name === "Courses" && (
+                    <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
+                  )}
                   <span className={cn(
                     "absolute bottom-0 left-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300",
                     isActive ? "w-full" : "w-0 group-hover:w-full"
