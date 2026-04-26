@@ -145,6 +145,16 @@ model ContactMessage {
   @@map("contact_message")
 }
 
+model Category {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  courses   Course[]
+
+  @@map("category")
+}
+
 model Course {
   id               String       @id @default(uuid())
   title            String
@@ -154,7 +164,9 @@ model Course {
   duration         Int
   level            CourseLevel  @default(Beginner)
   stripePriceId    String       @unique
-  category         String
+  categoryId       String?
+  category         Category?    @relation(fields: [categoryId], references: [id])
+  categoryName     String       @default("")
   smallDescription String
   slug             String       @unique
   status           CourseStatus @default(Draft)
@@ -166,7 +178,7 @@ model Course {
   enrollment       Enrollment[]
   projects         Project[]
 
-  @@index([category])
+  @@index([categoryId])
   @@index([status])
 }
 
@@ -187,12 +199,19 @@ model Lesson {
   description    String?
   thumbnailKey   String?
   videoKey       String?
+  type           LessonType       @default(Video)
   position       Int
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
   chapterId      String
   Chapter        Chapter          @relation(fields: [chapterId], references: [id], onDelete: Cascade)
   lessonProgress LessonProgress[]
+}
+
+enum LessonType {
+  Video
+  Article
+  Quiz
 }
 
 model Enrollment {
