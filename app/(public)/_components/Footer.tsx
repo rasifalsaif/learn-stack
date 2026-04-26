@@ -143,7 +143,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
           <div className="text-sm text-slate-600 dark:text-slate-400">
-            <p>&copy; {currentYear} LearnStack. All rights reserved. Built with care.</p>
+            <p>&copy; {currentYear} LearnStack by rasifalsaif. All rights reserved. Built with passion.</p>
           </div>
           <div className="flex flex-wrap gap-6 text-sm justify-center md:justify-end">
             <Link href="#" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 hover:underline">
