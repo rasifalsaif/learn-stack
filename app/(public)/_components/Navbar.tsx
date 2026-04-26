@@ -76,7 +76,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-white/20 dark:border-white/10 bg-white/60 dark:bg-slate-950/60 backdrop-blur-xl transition-all duration-300 animate-slide-down shadow-xl">
       <div className="container flex min-h-16 items-center mx-auto px-4 md:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2 mr-4 group">
+        <Link href="/" className="flex items-center space-x-2 mr-4 group" title="Learn Stack Home">
           <div className="relative">
             <Image src={Logo} alt="Logo" className="size-9 group-hover:scale-110 transition-transform duration-300" />
           </div>
@@ -84,7 +84,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex md:flex-1 md:items-center md:justify-between">
+        <nav className="hidden md:flex md:flex-1 md:items-center md:justify-between" aria-label="Main navigation">
           <div className="flex items-center space-x-1">
             {navigationItems.map((item) => {
               const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
@@ -92,6 +92,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
+                  aria-current={isActive ? "page" : undefined}
                   className={cn(
                     "px-3 py-2 text-sm font-medium transition-all duration-300 rounded-md relative group",
                     isActive
