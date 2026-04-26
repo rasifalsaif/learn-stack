@@ -175,8 +175,8 @@ We use a custom `ScrollReveal` component that leverages `IntersectionObserver`:
 1.  **Clone the Source**
 
     ```bash
-    git clone https://github.com/shazid25/Learn-Stack.git
-    cd Learn-Stack
+    git clone https://github.com/rasifalsaif/learn-stack.git
+    cd learn-stack
     ```
 
 2.  **Dependency Installation**
@@ -292,7 +292,7 @@ Distributed under the **Private License**. All Rights Reserved.
 
 **"Building the future of digital education, one commit at a time."**
 
-[](https://github.com/shazid25)
+[](https://github.com/rasifalsaif/learn-stack)
 
 [⬆ Back to Top](https://www.google.com/search?q=%23learn-stack-enterprise-learning-management-system)
 
