@@ -15,8 +15,8 @@ const features = [
     color: "bg-blue-500",
   },
   {
-    title: "Global Community",
-    description: "Connect with thousands of students and mentors worldwide.",
+    title: "AI-Driven Mentorship",
+    description: "Get personalized guidance and code reviews from our intelligent AI tutors.",
     icon: Users,
     color: "bg-purple-500",
   },
