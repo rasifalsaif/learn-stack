@@ -18,7 +18,9 @@ import {
   Globe,
   Loader2,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  Code,
+  Terminal
 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "sonner";
@@ -174,6 +176,29 @@ export default function ProfilePage() {
                    Save Changes
                  </Button>
               </CardFooter>
+            </Card>
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={0.2}>
+            <Card className="border-slate-200 dark:border-slate-800 rounded-3xl shadow-xl shadow-slate-100/50 dark:shadow-none overflow-hidden">
+              <CardHeader className="p-8 pb-4">
+                <CardTitle className="text-2xl font-black flex items-center gap-3">
+                  <Code className="text-blue-600" /> Skills & Expertise
+                </CardTitle>
+                <CardDescription>Highlight your technical strengths and learning progress.</CardDescription>
+              </CardHeader>
+              <CardContent className="p-8 pt-4 space-y-6">
+                <div className="flex flex-wrap gap-3">
+                  {["React 19", "Next.js 15", "TypeScript", "Tailwind CSS", "Node.js", "AI Integration"].map((skill) => (
+                    <Badge key={skill} className="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 hover:bg-blue-600 hover:text-white transition-all cursor-default border-none font-bold rounded-xl">
+                      {skill}
+                    </Badge>
+                  ))}
+                  <button className="px-4 py-2 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl text-slate-400 font-bold hover:border-blue-600 hover:text-blue-600 transition-all flex items-center gap-2">
+                    <Terminal size={16} /> Add Skill
+                  </button>
+                </div>
+              </CardContent>
             </Card>
           </ScrollReveal>
         </div>
