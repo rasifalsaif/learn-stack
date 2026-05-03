@@ -1,11 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, FileText, TrendingUp, BookOpen, UserPlus, Settings } from "lucide-react";
+import { Users, FileText, TrendingUp, BookOpen, UserPlus, Settings, MessageSquare, LifeBuoy, ShieldAlert } from "lucide-react";
 import { prisma } from "@/lib/db";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default async function ManagerDashboard() {
-  const [userCount, blogCount, courseCount, recentUsers] = await Promise.all([
+  const [userCount, blogCount, courseCount, recentUsers, pendingMessages] = await Promise.all([
     prisma.user.count(),
     prisma.blog.count(),
     prisma.course.count(),
@@ -13,14 +13,15 @@ export default async function ManagerDashboard() {
       orderBy: { createdAt: "desc" },
       take: 5,
       select: { id: true, name: true, email: true, createdAt: true, role: true }
-    })
+    }),
+    prisma.contactMessage.count({ where: { read: false } })
   ]);
 
   const stats = [
     { label: "Total Users", value: userCount, icon: Users, color: "text-blue-600" },
     { label: "Blog Posts", value: blogCount, icon: FileText, color: "text-purple-600" },
     { label: "Total Courses", value: courseCount, icon: BookOpen, color: "text-emerald-600" },
-    { label: "Market Growth", value: "+12.5%", icon: TrendingUp, color: "text-orange-600" },
+    { label: "Pending Messages", value: pendingMessages, icon: MessageSquare, color: "text-amber-600" },
   ];
 
   return (
@@ -90,6 +91,39 @@ export default async function ManagerDashboard() {
              </Link>
           </CardContent>
         </Card>
+      </div>
+
+      {/* Manager Resources */}
+      <div className="mt-8">
+        <h2 className="text-xl font-black mb-4">Manager Resources</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+           <Card className="border-blue-600/20 bg-blue-600/5 p-6 rounded-3xl">
+              <div className="flex flex-col gap-4">
+                 <div className="p-3 bg-blue-600 text-white rounded-2xl w-fit">
+                    <LifeBuoy size={24} />
+                 </div>
+                 <h4 className="font-bold">Support Guide</h4>
+                 <p className="text-xs text-slate-500 font-medium">Learn how to effectively manage user disputes and content moderation.</p>
+                 <Button variant="link" className="p-0 h-auto text-blue-600 font-bold justify-start">View Guide →</Button>
+              </div>
+           </Card>
+           <Card className="border-amber-600/20 bg-amber-600/5 p-6 rounded-3xl">
+              <div className="flex flex-col gap-4">
+                 <div className="p-3 bg-amber-600 text-white rounded-2xl w-fit">
+                    <ShieldAlert size={24} />
+                 </div>
+                 <h4 className="font-bold">Security Protocols</h4>
+                 <p className="text-xs text-slate-500 font-medium">Review platform security standards and data protection policies.</p>
+                 <Button variant="link" className="p-0 h-auto text-amber-600 font-bold justify-start">View Policies →</Button>
+              </div>
+           </Card>
+           <Card className="border-slate-200 dark:border-slate-800 p-6 rounded-3xl flex items-center justify-center border-dashed border-2">
+              <div className="text-center">
+                 <Settings size={24} className="mx-auto text-slate-400 mb-2" />
+                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">More tools coming soon</p>
+              </div>
+           </Card>
+        </div>
       </div>
     </div>
   );
