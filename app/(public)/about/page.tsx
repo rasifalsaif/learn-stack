@@ -141,6 +141,30 @@ export default async function AboutPage() {
         </section>
       )}
 
+      {/* Tech Stack Section */}
+      <section className="container mx-auto px-4 pb-24">
+        <div className="bg-slate-50 dark:bg-slate-800/30 rounded-[3rem] p-12 md:p-24 border border-slate-200 dark:border-slate-800">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                 <Badge className="bg-emerald-500/10 text-emerald-600 border-emerald-500/20 px-4 py-2 font-black uppercase tracking-widest text-xs">
+                    Our Stack
+                 </Badge>
+                 <h2 className="text-3xl md:text-5xl font-black">Built with <span className="text-blue-600">cutting-edge</span> technology.</h2>
+                 <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                   We use the most modern tools in the industry to ensure our platform is fast, secure, and reliable for every student.
+                 </p>
+              </div>
+              <div className="flex flex-wrap gap-4">
+                 {["Next.js 15", "React 19", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS", "Arcjet", "Stripe"].map((tech) => (
+                   <div key={tech} className="px-6 py-4 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 font-bold text-slate-900 dark:text-white hover:scale-105 transition-transform">
+                     {tech}
+                   </div>
+                 ))}
+              </div>
+           </div>
+        </div>
+      </section>
+
     </div>
   );
 }
