@@ -3,7 +3,7 @@
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { useState, useRef, useEffect } from "react";
-import { Send, Bot, Loader2, Sparkles, RefreshCcw, User } from "lucide-react";
+import { Send, Bot, Loader2, Sparkles, RefreshCcw, User, Trash2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -22,12 +22,17 @@ export default function DashboardChat() {
     sendMessage, 
     status, 
     regenerate,
+    setMessages,
     error 
   } = useChat({
     transport: new DefaultChatTransport({
       api: "/api/chat",
     }),
   });
+
+  const clearChat = () => {
+    setMessages([]);
+  };
 
   const isLoading = status === "submitted" || status === "streaming";
 
@@ -73,14 +78,24 @@ export default function DashboardChat() {
             </div>
           </div>
         </div>
-        <button 
-          onClick={() => regenerate()} 
-          type="button" 
-          className="p-2 text-slate-400 hover:text-blue-600 transition-colors bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm"
-          title="Regenerate last response"
-        >
-          <RefreshCcw size={18} />
-        </button>
+        <div className="flex items-center gap-2">
+          <button 
+            onClick={() => regenerate()} 
+            type="button" 
+            className="p-2 text-slate-400 hover:text-blue-600 transition-colors bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm"
+            title="Regenerate last response"
+          >
+            <RefreshCcw size={18} />
+          </button>
+          <button 
+            onClick={clearChat} 
+            type="button" 
+            className="p-2 text-slate-400 hover:text-red-500 transition-colors bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm"
+            title="Clear conversation"
+          >
+            <Trash2 size={18} />
+          </button>
+        </div>
       </div>
 
       {/* Messages Area */}
